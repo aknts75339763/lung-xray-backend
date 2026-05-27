@@ -5,6 +5,14 @@ from PIL import Image, ImageDraw
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import torch
+
+# 修复 PyTorch 2.6+ weights_only 问题
+_original_load = torch.load
+def _patched_load(*args, **kwargs):
+    kwargs.setdefault('weights_only', False)
+    return _original_load(*args, **kwargs)
+torch.load = _patched_load
+
 import torchxrayvision as xrv
 import skimage.io, skimage.transform
 
