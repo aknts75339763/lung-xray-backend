@@ -1,5 +1,3 @@
-import torch
-torch.serialization.add_safe_globals(['torchxrayvision.models.DenseNet'])
 import os, base64, tempfile
 from io import BytesIO
 import numpy as np
@@ -9,6 +7,9 @@ from flask_cors import CORS
 import torch
 import torchxrayvision as xrv
 import skimage.io, skimage.transform
+
+# 修复 PyTorch 2.6+ 安全限制
+torch.serialization.add_safe_globals([xrv.models.DenseNet])
 
 app = Flask(__name__)
 CORS(app)
