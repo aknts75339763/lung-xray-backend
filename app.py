@@ -1,3 +1,5 @@
+import torch
+torch.serialization.add_safe_globals(['torchxrayvision.models.DenseNet'])
 import os, base64, tempfile
 from io import BytesIO
 import numpy as np
