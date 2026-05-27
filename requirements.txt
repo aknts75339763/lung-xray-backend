@@ -3,7 +3,7 @@ flask-cors==4.0.1
 torchxrayvision==1.0.1
 torch==2.12.0
 torchvision==0.27.0
-scikit-image==0.22.0
-Pillow==10.3.0
+scikit-image==0.24.0
+Pillow==10.4.0
 numpy==1.26.4
 gunicorn==22.0.0
